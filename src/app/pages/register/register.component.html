@@ -1,0 +1,47 @@
+<div class="container">
+
+    <h2>Registration</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <div>
+            <label for="">Username</label>
+            <input type="text" formControlName="username" class="form-control" placeholder="Enter usernae">
+            <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">
+                Username is mandatory
+
+            </div>
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="Enter email">
+            <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+                Email is mandatory
+
+            </div>
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="Enter password">
+            <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+                Password is mandatory
+
+            </div>
+        </div>
+
+        <div>
+            <label for="">Roles</label>
+            <select formControlName="roles" multiple class="form-select">
+                <option *ngFor="let role of roles" [value]="role.roleValue">{{role.roleName}}</option>
+            </select>
+
+        </div>
+        <div class="m-4">
+            <button type="submit" class="btn btn-primary"> Submit</button>
+            <!-- <div *ngIf="errorMsg!= ''">{{errorMsg}}</div> -->
+
+
+
+        </div>
+
+    </form>
+</div>

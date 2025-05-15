@@ -1,0 +1,109 @@
+<form [formGroup]="employForm" (ngSubmit)="addEmploy()">
+
+    <div>
+        <label for="">Username</label>
+        <input type="text" formControlName="username" class="form-control" placeholder="Enter usernae">
+        <div *ngIf="employForm.get('username')?.invalid && employForm.get('username')?.touched" class="error">
+            Username is mandatory
+
+        </div>
+
+
+    </div>
+    <div class="row mt-4">
+
+        <div class="col-6">
+            <label for="">FirstName</label>
+            <input type="text" formControlName="firstName" class="form-control" placeholder="Enter firstName">
+            <div *ngIf="employForm.get('firstName')?.invalid && employForm.get('firstName')?.touched" class="error">
+                FirstName is mandatory
+
+            </div>
+        </div>
+        <div class="col-6">
+            <label for="">LastName</label>
+            <input type="text" formControlName="lastName" class="form-control" placeholder="Enter lastName">
+            <div *ngIf="employForm.get('lastName')?.invalid && employForm.get('lastName')?.touched" class="error">
+                LastName is mandatory
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-6">
+            <label for="">Email</label>
+            <input type="email" formControlName="email" class="form-control" placeholder="Enter Email">
+            <div *ngIf="employForm.get('email')?.invalid && employForm.get('email')?.touched" class="error">
+                Email is mandatory
+
+            </div>
+
+        </div>
+        <div class="col-6">
+            <label for="">Phone No</label>
+            <input type="text" formControlName="phone" class="form-control" placeholder="Enter Phone No">
+            <div *ngIf="employForm.get('phone')?.invalid && employForm.get('phone')?.touched" class="error">
+                Phone No is mandatory
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row mt-3">
+
+        <div class="col-6">
+            <label for="">Salary</label>
+            <input type="text" formControlName="salary" class="form-control" placeholder="Enter Salary">
+            <div *ngIf="employForm.get('salary')?.invalid && employForm.get('salary')?.touched" class="error">
+                salary is mandatory
+
+            </div>
+
+        </div>
+
+        <div class="col-6">
+            <label for="">Designation</label>
+            <input type="text" formControlName="designation" class="form-control" placeholder="Enter Salary">
+            <div *ngIf="employForm.get('designation')?.invalid && employForm.get('designation')?.touched" class="error">
+                Designation is mandatory
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div>
+        <label for="">Roles</label>
+        <select formControlName="roles" multiple class="form-select">
+            <option *ngFor="let role of roles" [value]="role.roleValue">{{role.roleName}}</option>
+        </select>
+
+    </div>
+
+
+    <div class="row mt-2">
+        <div class="col-6">
+
+            <label>Photo:</label>
+            <input type="file" class="form-control" (change)="onFileChange($event,'photo')" />
+        </div>
+        <div class="col-6">
+
+            <label>Resume:</label>
+            <input type="file" class="form-control" (change)="onFileChange($event,'resume')" />
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary" >Save Employee</button>
+        </div>
+    </div>
+
+
+</form>

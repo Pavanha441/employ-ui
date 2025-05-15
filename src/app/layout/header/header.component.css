@@ -1,0 +1,12 @@
+.header-bar{
+    background-color: #978ade;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-bar span{
+    font-weight: bolder;
+}
